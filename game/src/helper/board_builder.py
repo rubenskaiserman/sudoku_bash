@@ -4,7 +4,7 @@ def le_sudoku(arquivo:str)->str:
 
 def cria_tabuleiro(conteudo:str):
     CHUNCK_LENGTH = 9
-    BOARD_STRING = conteudo.replace('\n', '').replace(' , ', '')
+    BOARD_STRING = conteudo.replace('\n', ' , ').split(' , ')
     j = 0
     board = []
 
@@ -29,4 +29,4 @@ def armazena_posicoes_fixas(conteudo:str):
 
 if __name__ == '__main__':
     # print(armazena_posicoes_fixas(le_sudoku('./boards/imagem1.csv')))
-    pass
+    print(cria_tabuleiro(le_sudoku('./boards/imagem1.csv')))
