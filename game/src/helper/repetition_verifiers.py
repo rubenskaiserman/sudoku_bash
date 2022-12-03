@@ -16,11 +16,13 @@ def get_regioes(T:list[list])->dict:
 
 def verifica_regiao(T:list, R:str)->bool:
     # Verifica se a região está com valores repetidos
+    # Tem valores repetidos: False
+    # Não tem valores repetidos: True
     regioes = get_regioes(T)
 
     regiao = regioes[R]
     for item in regiao:
-        if regiao.count(item) > 1: return False
+        if regiao.count(item) > 1 and item != '0': return False
     return True
 
 def verifica_coluna(T:list[list], C:int)->bool:
@@ -30,13 +32,13 @@ def verifica_coluna(T:list[list], C:int)->bool:
         coluna.append(T[row][C])
     
     for item in coluna:
-        if coluna.count(item) > 1: return False
+        if coluna.count(item) > 1 and item != '0': return False
     return True
 
 def verifica_linha(T: list[list], L:int)->bool:
     # Verifica se a linha está com valores repetidos
     for item in T[L]:
-        if T[L].count(item) > 1: return False 
+        if T[L].count(item) > 1 and item != '0': return False 
     return True
 
 def position_group(position:tuple)->str:

@@ -1,9 +1,10 @@
 from helper import board_builder, interaction, repetition_verifiers
+from random import randint
 
 def inicia_jogo()->None:
     # Função main do jogo
-
-    file_dir = '../boards/imagem1.csv'
+    file_id = randint(0, 49)
+    file_dir = f'../boards/board{file_id}.csv'
     board_file = board_builder.le_sudoku(file_dir)
     board = board_builder.cria_tabuleiro(board_file)
     posicoes_fixas = board_builder.armazena_posicoes_fixas(board_file)
