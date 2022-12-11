@@ -3,8 +3,8 @@ def le_sudoku(arquivo:str)->str:
         return file.read()
 
 def cria_tabuleiro(conteudo:str)->list:
-    CHUNCK_LENGTH = 9
     BOARD_STRING = conteudo.replace('\n', ' , ').split(' , ')
+    CHUNCK_LENGTH = int(len(BOARD_STRING) ** (1/2))
     j = 0
     board = []
 
@@ -15,8 +15,8 @@ def cria_tabuleiro(conteudo:str)->list:
     return board
 
 def armazena_posicoes_fixas(conteudo:str)->list:
-    LINE_COLUMN_LENGTH = 9
     BOARD = cria_tabuleiro(conteudo)
+    LINE_COLUMN_LENGTH = board_length(BOARD)
     EMPTY_SPACE = '0'
     
     linhas_fixas = []
@@ -29,3 +29,7 @@ def armazena_posicoes_fixas(conteudo:str)->list:
 
 if __name__ == '__main__':
     print(cria_tabuleiro(le_sudoku('./boards/imagem1.csv')))
+
+
+def board_length(board):
+    return len(board)
